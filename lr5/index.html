@@ -1,14 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Індивідуальне завдання</title>
-</head>
-<body>
-    <button><a href="task1/index.html">Task 1</a></button>
-    <button><a href="task2/index.html">Task 2</a></button>
-    <button><a href="task3/index.html">Task 3</a></button>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <h1>Завдання 1</h1>
+    <div class="task1_conteiner">
+      <div class="container1">
+        <label for="fahrenheit">Температура за Фаренгейтом:</label>
+        <input id="Fahrenheit" type="text" placeholder="" />
+      </div>
+      <div class="container2">
+        <label for="celsius">Температура за Цельсієм:</label>
+        <input id="Celsius" type="text" placeholder="" />
+      </div>
+    </div>
+
+    <h1>Завдання 2</h1>
+    <div class="task2_conteiner">
+        <div id = "textBox">загальний рахунок <span id="resultPercentage">0</span>% (<span id="resultNumber">0</span> правильних відповідей з <span id="totalQuestions">0</span>)</div>
+        <button id="nextTaskButton">Наступне завдання</button>
+        <div class = "question">
+          <span> <span id="questionText">0</span> x <span id="questionText2">0</span> = </span>
+          <input id="answerInput" type="text" placeholder="" />
+          <button id="checkAnswerButton">перевірити</button>
+          <div id="message"></div>
+        </div>
+    </div>
+
+   <h1>Завдання 3</h1>
+<div class="task3_conteiner">
+  <div id="textBox2">загальний рахунок <span id="resultPercentage2">0</span>% (<span id="resultNumber2">0</span> правильних відповідей з <span id="totalQuestions2">0</span>)</div>
+  <button id="nextTaskButton2">Наступне завдання</button>
+  <div class="question">
+    <span><span id="questionText3">0</span> x <span id="questionText4">0</span> =</span>
+
+    <label class="option-item">
+      <input type="radio" name="answerOption" value="1">
+      <span>Варіант 1</span>
+    </label>
+    <label class="option-item">
+      <input type="radio" name="answerOption" value="2">
+      <span>Варіант 2</span>
+    </label>
+    <label class="option-item">
+      <input type="radio" name="answerOption" value="3">
+      <span>Варіант 3</span>
+    </label>
+    <label class="option-item">
+      <input type="radio" name="answerOption" value="4">
+      <span>Варіант 4</span>
+    </label>
+
+    <div id="message2"></div>
+  </div>
+</div>
+
+<h1>Завдання 4</h1>
+<div class="task4_conteiner">
+  <div id = "rotator"> </div>
+</div>
+<h1>Завдання 5</h1>
+<div class="task5_conteiner">
+  <div id="captcha"></div>
+    <input type="text" id="input">
+    <p id="statusMsg"></p>
+</div>
     <script src="assets/script.js"></script>
-</body>
+  </body>
 </html>
