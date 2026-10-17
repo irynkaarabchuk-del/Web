@@ -17,7 +17,7 @@ function randomNumber() {
   return Math.floor(Math.random() * 11);
 }
 
-// ===== ЗАВДАННЯ 2 =====
+//task2
 const nextTaskButton = document.getElementById("nextTaskButton");
 const answerInput = document.getElementById("answerInput");
 const checkAnswerButton = document.getElementById("checkAnswerButton");
@@ -70,7 +70,7 @@ checkAnswerButton.addEventListener("click", () => {
 
 generateNumbers();
 
-// ===== ЗАВДАННЯ 3 =====
+//task3
 const nextTaskButton2 = document.getElementById("nextTaskButton2");
 const questionText3 = document.getElementById("questionText3");
 const questionText4 = document.getElementById("questionText4");
@@ -96,7 +96,7 @@ function generateTask3() {
   message2.textContent = "";
   answered = false;
 
-  // 4 різні варіанти, один правильний
+  //4 різні варіанти, один правильний
   const variants = [right];
   while (variants.length < 4) {
     const wrong = randomNumber() * randomNumber();
@@ -242,9 +242,6 @@ container.appendChild(description);
 }
 initPhotoRotator("rotator", dogArray);
 
-//task5
-
-//task5
 //task5
 const digitFont = {
   0: ["111", "101", "101", "101", "111"],
