@@ -4,6 +4,9 @@ const ourCoords = {
 };
 
 let watchId = null;
+let map = null;
+let destMarker = null;
+let destCoords = null;
 document.addEventListener('DOMContentLoaded', getMyLocation)
 
 function getMyLocation() {
@@ -26,8 +29,10 @@ function displayLocation (position){
     div.innerHTML += `(with ${position.coords.accuracy} meters accuracy)`
     let km = computeDistance(position.coords, ourCoords)
     let distance = document.getElementById("distance")
-    distance.innerHTML = `You are ${km} km from the College`
+    distance.innerHTML = `You are ${km.toFixed(2)} km from the College`
+    showOnMap(latitude, longitude, position.timestamp);
 }
+
 function displayError(error) {
     const errorTypes = {
         0: "Unknown error",
@@ -35,7 +40,7 @@ function displayError(error) {
         2: "Position is not available",
         3: "Request timed out"
     };
-    const errorMessage = errorTypes[error.code];
+    let errorMessage = errorTypes[error.code];
     if (error.code == 0 || error.code == 2) {
         errorMessage = errorMessage + " " + error.message;
     }
@@ -70,3 +75,54 @@ function clearWatch() {
         watchId = null;
     }
 }
+
+function showOnMap(latitude, longitude, timestamp) {
+    if (!map) {
+        map = L.map("map").setView([latitude, longitude], 15);
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
+
+        L.marker([ourCoords.latitude, ourCoords.longitude])
+            .addTo(map)
+            .bindPopup(coordsPopup("Коледж", ourCoords.latitude, ourCoords.longitude));
+    }
+
+    // новий пін при кожній зміні місця
+    const time = new Date(timestamp).toLocaleTimeString("uk-UA");
+    L.marker([latitude, longitude])
+        .addTo(map)
+        .bindPopup(coordsPopup("Ви були тут", latitude, longitude, `<br>Час: ${time}`));
+
+    map.setView([latitude, longitude]);
+}
+
+function coordsPopup(title, lat, lng, extra = "") {
+    return `<b>${title}</b><br>
+          Широта: ${lat.toFixed(5)}<br>
+          Довгота: ${lng.toFixed(5)}${extra}`;
+}
+// кнопка "Задати пункт"
+document.getElementById("destForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // щоб сторінка не перезавантажувалась
+
+    // беремо числа з полів
+    let lat = parseFloat(document.getElementById("destLat").value);
+    let lng = parseFloat(document.getElementById("destLng").value);
+   
+    if (!map) { // якщо карти ще нема, далі йти не можна
+        alert("Карта ще завантажується, зачекайте");
+        return;
+    }
+
+    if (destMarker) {// видалено старий пін пункту (якщо був)
+        map.removeLayer(destMarker);
+    }
+
+    destMarker = L.marker([lat, lng]).addTo(map); // поставлено новий пін з повідомленням
+    destMarker.bindPopup(coordsPopup("Пункт призначення", lat, lng));
+
+    map.flyTo([lat, lng], 15);
+});
