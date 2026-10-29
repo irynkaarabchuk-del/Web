@@ -66,7 +66,6 @@ tabs.forEach(function (tab) {
 */
 
 function generateBorderRadius() {
-    // Завдання 5
     const topLeftRadius = topLeft.value;
     const topRightRadius = topRight.value;
     const bottomRightRadius = bottomRight.value;
@@ -75,6 +74,8 @@ function generateBorderRadius() {
     const radius = `${topLeftRadius}px ${topRightRadius}px ${bottomRightRadius}px ${bottomLeftRadius}px`;
 
     preview.style.borderRadius = radius;
+    preview.style.backgroundColor = backgroundColor.value;
+    preview.style.textAlign = textAlign.value;
 
     topLeftValue.textContent = `${topLeftRadius} px`;
     topRightValue.textContent = `${topRightRadius} px`;
