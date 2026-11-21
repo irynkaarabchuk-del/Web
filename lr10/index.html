@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <title>Магазин годинників</title>
+</head>
+<body>
+    <div class="cart-header-icon" id="cartHeaderIcon">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+
+    <div class = "shop">
+    <h1>обов'язково додайте своє замовлення</h1>
+    <div class = "wrap">
+        <div class = "badge new">новинка</div>
+        <div class = "badge hit">хіт продажів</div>
+        <div class = "badge hit2">хіт продажів</div>
+        <div class = "swipe swipe_left">&lt;</div>
+        <div class = "swipe swipe_right">&gt;</div>
+        <div class = "components">
+            <a class = category href = "https://bt.rozetka.com.ua/ua/esperanza-ehc016w/p416823210/">настінний годинник</a>
+            <div class = "line"></div>
+            <div class = "image">
+                <img src="https://content.rozetka.com.ua/goods/images/big/406713263.png" alt="photo" class="image">
+            </div>
+            <div class = "name">настінний годинник</div>
+            <div class = "price"></div>
+            <div class = "button not">незабаром у продажі</div>
+        </div>
+
+        <div class = "components">
+            <a class = category href="https://bt.rozetka.com.ua/ua/408444135/p408444135/">наручний годинник</a>
+            <div class = "line"></div>
+            <div class = "image">
+                <img src="https://content.rozetka.com.ua/goods/images/big/314334129.jpg" alt="photo" class="image">
+            </div>
+            <div class = "name">чоловічий наручний годинник</div>
+            <div class = "price"><s>5000 грн</s>4300 грн</div>
+            <a href = "#modal_qty" class = "button yes">у корзину</a>
+        </div>
+
+        <div class = "components">
+            <a class = category href="https://bt.rozetka.com.ua/ua/naruchnye-chasy-bez-brenda-156049593/p559529625/">наручний годинник</a>
+            <div class = "line"></div>
+            <div class = "image">
+                <img src="https://content.rozetka.com.ua/goods/images/big/640623020.jpg" alt="photo" class="image">
+            </div>
+            <div class = "name">жіночий наручний годинник</div>
+            <div class = "price">5529 грн</div>
+            <a href = "#modal_qty" class = "button yes">у корзину</a>
+        </div>
+
+        <div class = "components">
+                <a class = category href = "https://bt.rozetka.com.ua/ua/470189964/p470189964/">кишеньковий годинник</a>
+            <div class = "line"></div>
+            <div class = "image">
+                <img src="https://content.rozetka.com.ua/goods/images/big/501091975.jpg" alt="photo" class="image">
+            </div>
+            <div class = "name">кишеньковий годинник</div>
+            <div class = "price">800 грн</div>
+            <a href = "#modal_qty" class = "button yes">у корзину</a>
+        </div>
+    </div>
+    </div>
+
+    <div class = "page_cart" id = "cart_page">
+        <h1>корзина</h1>
+        <div class = "cart_wrap">
+            <table class = "cart_table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Фото</th>
+                        <th>Назва</th>
+                        <th>Ціна</th>
+                        <th>Кількість</th>
+                        <th>Сума</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="images/чоловічий годинник.webp" alt="photo"></td>
+                        <td class = "cart_name">чоловічий наручний годинник</td>
+                        <td>4300 грн</td>
+                        <td>1</td>
+                        <td>4300 грн</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="images/кишенькові годинники.webp" alt="photo"></td>
+                        <td class = "cart_name">кишеньковий годинник</td>
+                        <td>800 грн</td>
+                        <td>3</td>
+                        <td>2400 грн</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class = "cart_total">Разом: 6700 грн</div>
+
+            <div class = "cart_actions">
+                <a href = "#" class = "button back">Повернутись до покупок</a>
+                <a href = "#" class = "button yes">Оплатити</a>
+            </div>
+        </div>
+    </div>
+
+    <div class = "modal" id = "modal_empty">
+        <div class = "modal_box">
+            <p class = "modal_text">Корзина пуста</p>
+            <div class = "modal_buttons">
+                <a href = "#" class = "modal_btn">Закрити</a>
+            </div>
+        </div>
+    </div>
+
+    <div class = "modal" id = "modal_qty">
+        <div class = "modal_box">
+            <p class = "modal_text">Вкажіть кількість:</p>
+            <input type = "number" class = "modal_input" min = "1" value = "1">
+            <div class = "modal_buttons">
+                <a href = "#modal_added" class = "modal_btn main">Додати до корзини</a>
+                <a href = "#" class = "modal_btn">Скасувати</a>
+            </div>
+        </div>
+    </div>
+
+    <div class = "modal" id = "modal_added">
+        <div class = "modal_box">
+            <p class = "modal_text">Товар додано</p>
+            <div class = "modal_buttons">
+                <a href = "#cart_page" class = "modal_btn main">Перейти у корзину</a>
+                <a href = "#" class = "modal_btn">Повернутись до покупок</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/script.js"></script>
+</body>
